@@ -1,0 +1,30 @@
+
+
+.conteudo-principal {
+    flex-grow: 5;
+
+}
+
+.lista-categorias {
+    display: flex;
+    justify-content: space-between;
+      
+}
+.lista-categorias_lista{
+   display: flex;
+   flex-grow: 1;
+   justify-content: space-between;
+}
+.lista-categorias_items {
+    color: #fdfdfd;
+    background: #000055;
+    border-radius: 15px;
+    padding: 0px 15px 0 15px;
+    font-size: 14px;
+}
+.lista-categorias_input {
+    margin: 15px 20px 0px 60px;
+    width: 130px;
+    height: 15px;
+    border: 3px solid #333333;
+}
