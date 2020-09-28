@@ -21,19 +21,26 @@ import './app.css';
       notas: novoArrayNotas
     }
     this.setState(novoEstado);
-  
+  }
     /*this.notas.push(novaNota);
     console.log(this.notas.length);
     this.setState({ //controla o render, ele atualiza a pagina sempre que chamado, houver alteração
       nostas: this.notas
     });*/
-  }
+    
+    deletarNota(index){
+     // console.log("deletar");
+     let arrayNotas = this.state.notas;
+     arrayNotas.splice(index,1);
+     this.setState({notas:arrayNotas});
+    }
 
   render(){ 
             return (
               <section className='conteudo'>
                 <Formulario criarNota={this.criarNota.bind(this)}/>
-                <ListaDeNotas notas={this.state.notas}/>
+                <ListaDeNotas apagarNota={this.deletarNota.bind(this)}
+                 notas={this.state.notas}/>
               </section>
             );
   }
