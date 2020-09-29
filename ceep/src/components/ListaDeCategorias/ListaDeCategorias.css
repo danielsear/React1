@@ -14,6 +14,7 @@
    display: flex;
    flex-grow: 1;
    justify-content: space-between;
+   flex-wrap: wrap;
 }
 .lista-categorias_items {
     color: #fdfdfd;
@@ -21,8 +22,11 @@
     border-radius: 15px;
     padding: 0px 15px 0 15px;
     font-size: 14px;
+    width: 70px;
+    
 }
 .lista-categorias_input {
+   display:block;
     margin: 15px 20px 0px 60px;
     width: 130px;
     height: 15px;

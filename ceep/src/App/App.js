@@ -10,7 +10,8 @@ import './app.css';
     super();
   //  this.notas= [];
     this.state= {
-      notas: []
+      notas: [],
+      categorias:[],
     };
   }
 
@@ -29,6 +30,12 @@ import './app.css';
       nostas: this.notas
     });*/
     
+    adicionarCategoria(nomeCategoria){
+      const novoArrayCategorias = [...this.state.categorias, nomeCategoria];
+      const novoEstado = {...this.state, categorias:novoArrayCategorias};
+      this.setState(novoEstado);
+    }
+
     deletarNota(index){
      // console.log("deletar");
      let arrayNotas = this.state.notas;
@@ -36,13 +43,17 @@ import './app.css';
      this.setState({notas:arrayNotas});
     }
 
+
+
   render(){ 
             return (
               <section className='conteudo'>
                 <Formulario
                  criarNota={this.criarNota.bind(this)}/>
                     <main className='conteudo-principal'>
-                        <ListaDeCategorias />
+                        <ListaDeCategorias
+                        adicionarCategoria = {this.adicionarCategoria.bind(this)}
+                        categorias={this.state.categorias} />
                         <ListaDeNotas
                         apagarNota={this.deletarNota.bind(this)}
                         notas={this.state.notas}/>
