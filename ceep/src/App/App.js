@@ -9,7 +9,7 @@ import './app.css';
   constructor(){
     super();
   //  this.notas= [];
-    this.state= {
+    this.state= {// é quem esta guardando os dados da nossa aplicação
       notas: [],
       categorias:[],
     };
@@ -48,15 +48,20 @@ import './app.css';
   render(){ 
             return (
               <section className='conteudo'>
-                <Formulario
-                 criarNota={this.criarNota.bind(this)}/>
+
+                    <Formulario
+                    categorias={this.state.categorias}
+                    criarNota={this.criarNota.bind(this)}/>
                     <main className='conteudo-principal'>
+
                         <ListaDeCategorias
                         adicionarCategoria = {this.adicionarCategoria.bind(this)}
                         categorias={this.state.categorias} />
+
                         <ListaDeNotas
                         apagarNota={this.deletarNota.bind(this)}
                         notas={this.state.notas}/>
+
                     </main>
                   
               </section>

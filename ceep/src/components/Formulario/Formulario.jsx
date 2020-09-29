@@ -30,8 +30,20 @@ export default class Formulario extends Component {
     render(){
         return (
             <form className='form-cadastro'onSubmit={this._criarNota.bind(this)} >
-                <input onChange={this._handleMudancaTitulo.bind(this)}  type="text" placeholder='Título' className="form-cadastro_input" />
-                <textarea onChange={this._handleMudancaTexto.bind(this)} rows={15} cols={50} className='form-cadastro_input' placeholder='Escreva sua nota...'></textarea>
+
+                <select className="form-cadastro_input">
+                    {this.props.categorias.map((categoria)=>{
+                        return <option>{categoria}</option>
+                    })}
+                </select>
+
+                <input onChange={this._handleMudancaTitulo.bind(this)} 
+                 type="text" placeholder='Título' className="form-cadastro_input" />
+
+                <textarea onChange={this._handleMudancaTexto.bind(this)} 
+                rows={15} cols={50} className='form-cadastro_input'
+                 placeholder='Escreva sua nota...'></textarea>
+
                 <button className='form-cadastro_input form-cadastro_submit'>Criar Nota</button>
             </form>
         );
