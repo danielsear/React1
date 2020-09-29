@@ -15,9 +15,9 @@ import './app.css';
     };
   }
 
-  criarNota(titulo,texto){
+  criarNota(titulo,texto,categoria){
     //console.log('uma nova nota '+ titulo+'   ' +texto); 
-    const novaNota= {titulo, texto};
+    const novaNota= {titulo, texto, categoria};
     const novoArrayNotas= [...this.state.notas,novaNota];
     const novoEstado = {
       notas: novoArrayNotas

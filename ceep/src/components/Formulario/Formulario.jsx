@@ -9,29 +9,39 @@ export default class Formulario extends Component {
          super(props);
         this.titulo='';
         this.texto='';
+        this.categoria= "Sem categoria";
     }
+
+    _handleMudancaCategoria(evento){
+        evento.stopPropagation();
+        this.categoria = evento.target.value;
+    } 
   
     _handleMudancaTitulo(evento){
+        evento.stopPropagation();
         this.titulo = evento.target.value;
       //  console.log(this.titulo);
     }
 
    _handleMudancaTexto(evento){
+         evento.stopPropagation();
         this.texto = evento.target.value;
-        console.log(this.texto);
+      //  console.log(this.texto);
     }
 
     _criarNota(evento){
         evento.preventDefault(); //para ele não se comportar normalmente, pois ele recarrega a pagina normalmente
         evento.stopPropagation();
-        this.props.criarNota(this.titulo, this.texto);
+        this.props.criarNota(this.titulo, this.texto, this.categoria);
        }
 
     render(){
         return (
             <form className='form-cadastro'onSubmit={this._criarNota.bind(this)} >
 
-                <select className="form-cadastro_input">
+                <select onChange={this._handleMudancaCategoria.bind(this)} 
+                        className="form-cadastro_input">
+                    <option defaultChecked={true}>Sem Categoria</option>
                     {this.props.categorias.map((categoria)=>{
                         return <option>{categoria}</option>
                     })}
